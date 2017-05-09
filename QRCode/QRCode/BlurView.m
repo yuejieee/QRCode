@@ -10,12 +10,22 @@
 
 @implementation BlurView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
+    CGFloat width = rect.size.width - 140;
+    CGFloat pointX = rect.size.width - 70;
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextMoveToPoint(context, 70, 150);
+    CGContextAddLineToPoint(context, pointX, 150);
+    CGContextAddLineToPoint(context, pointX, 150 + width);
+    CGContextAddLineToPoint(context, 70, 150 + width);
+    CGContextSetBlendMode(context, kCGBlendModeClear);
+    CGContextClosePath(context);
+    CGContextFillPath(context);
 }
-*/
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+}
 
 @end

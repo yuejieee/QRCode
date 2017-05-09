@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "QRCode.h"
 
-@interface ViewController ()
+@interface ViewController () <QRCodeDelegate>
 
 @end
 
@@ -16,7 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    QRCode *qr = [QRCode new];
+    [self.view addSubview:qr];
+    qr.frame = self.view.frame;
+    qr.delegate = self;
+}
+
+- (void)QRCodeDidOutputObjects:(NSArray *)Objects {
+    NSLog(@"%@", Objects);
 }
 
 

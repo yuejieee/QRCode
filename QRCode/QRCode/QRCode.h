@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class AVCaptureOutput;
+
+@protocol QRCodeDelegate <NSObject>
+
+- (void)QRCodeDidOutputObjects:(NSArray *)Objects;
+
+@end
+
 @interface QRCode : UIView
+
+@property (nonatomic, weak) id<QRCodeDelegate> delegate;
 
 @end
