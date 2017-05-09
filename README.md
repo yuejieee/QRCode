@@ -1,4 +1,5 @@
 <img sec=https://github.com/yuejieee/QRCode/blob/master/PreviewImage.gif width=500/>
+
 ## Description
 比较常用的二维码扫描控件封装，利用AVFundation实现，比较简单。
 ## Usage
